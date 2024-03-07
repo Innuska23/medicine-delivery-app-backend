@@ -1,7 +1,14 @@
+import mongoose from "mongoose";
 import ShopProduct from "../models/shop.product.model.js";
 
 const getShopProduct = async (req, res) => {
-  const shops = await ShopProduct.find();
+  const shopId = req.params.shopId;
+
+  if (!shopId) {
+    throw HttpError(400, "ShopId not provide");
+  }
+
+  const shops = await ShopProduct.find({ shop: shopId });
 
   if (!shops) {
     throw HttpError(404, "Shop products not found");
