@@ -1,7 +1,7 @@
 import express from "express";
-import { getShops } from "../controllers/shop.controller.js";
+import { shopsController } from "../controllers/shop.controller.js";
 const shopRouter = express.Router({ strict: true });
 
-shopRouter.get("/", getShops);
+shopRouter.get("/", shopsController.getShops);
 
 export default shopRouter;

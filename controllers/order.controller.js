@@ -1,3 +1,4 @@
+import controlWrapper from "../decorators/controlWraper.js";
 import OrderSchema from "../models/order.model.js";
 
 const createOrder = async (req, res) => {
@@ -29,4 +30,4 @@ const createOrder = async (req, res) => {
   return res.json(newProduct);
 };
 
-export { createOrder };
+export const orderController = { createOrder: controlWrapper(createOrder) };

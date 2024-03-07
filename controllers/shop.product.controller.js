@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import ShopProduct from "../models/shop.product.model.js";
+import controlWrapper from "../decorators/controlWraper.js";
 
 const getShopProduct = async (req, res) => {
   const shopId = req.params.shopId;
@@ -17,4 +18,6 @@ const getShopProduct = async (req, res) => {
   return res.json(shops);
 };
 
-export { getShopProduct };
+export const shopsProductController = {
+  getShopProduct: controlWrapper(getShopProduct),
+};

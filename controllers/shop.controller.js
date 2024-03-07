@@ -1,3 +1,4 @@
+import controlWrapper from "../decorators/controlWraper.js";
 import Shop from "../models/shop.model.js";
 
 const getShops = async (req, res) => {
@@ -10,4 +11,4 @@ const getShops = async (req, res) => {
   return res.json(shops);
 };
 
-export { getShops };
+export const shopsController = { getShops: controlWrapper(getShops) };
